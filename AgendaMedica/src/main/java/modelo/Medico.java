@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,6 +21,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "medicos")
+@NamedQueries({
+        @NamedQuery(name = "Medico.buscarTodos", 
+                    query = "SELECT m FROM Medico m"),
+        
+                    
+        @NamedQuery(name = "Especialidade.buscarPorEspecialidade", 
+                    query = "SELECT a FROM Medico a WHERE a.especialide = :espec")})     
+        
+    
 public class Medico implements Serializable{
     
     @Id

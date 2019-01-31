@@ -1,2 +1,3 @@
-/home/jeremias.neres/git/agenda_medica/AgendaMedica/src/main/java/modelo/Especialidade.java
-/home/jeremias.neres/git/agenda_medica/AgendaMedica/src/main/java/modelo/Medico.java
+/home/paulo.borges/Agenda/agenda_medica/AgendaMedica/src/main/java/repositorio/MedicoRepositorio.java
+/home/paulo.borges/Agenda/agenda_medica/AgendaMedica/src/main/java/modelo/Medico.java
+/home/paulo.borges/Agenda/agenda_medica/AgendaMedica/src/main/java/modelo/Especialidade.java
