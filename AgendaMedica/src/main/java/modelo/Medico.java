@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,6 +37,7 @@ public class Medico implements Serializable{
     @Column(name = "crm", nullable = false)
     private String crm;
     
+    @Enumerated
     @ManyToMany
     private Set<Especialidade> especialidades = new HashSet<>();
 
