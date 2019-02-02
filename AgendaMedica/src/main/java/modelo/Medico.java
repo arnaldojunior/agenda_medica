@@ -6,11 +6,14 @@ import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,6 +23,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "medicos")
+@NamedQueries({
+        @NamedQuery(name = "Medico.buscarTodos", 
+                    query = "SELECT m FROM Medico m"),               
+        @NamedQuery(name = "Medico.buscarPorEspecialidade", 
+                    query = "SELECT m FROM Medico m WHERE m.especialidades = :especialidade")})     
 public class Medico implements Serializable{
     
     @Id
@@ -36,9 +44,11 @@ public class Medico implements Serializable{
     
     @Column(name = "crm", nullable = false)
     private String crm;
-    
-    @Enumerated
+        
     @ManyToMany
+    @JoinTable(name = "medico_especialidade",
+            joinColumns = { @JoinColumn(name = "fk_medico") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_especialidade") })
     private Set<Especialidade> especialidades = new HashSet<>();
 
     

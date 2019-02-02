@@ -12,7 +12,8 @@
             <p:inputText placeholder="Nome do médico." />
         </h:form>
         
-        Hello from Facelets
+        Lista de Medicos:
+        #{medicoControle.buscarTodos()}
         <br />
         <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
     </h:body>
