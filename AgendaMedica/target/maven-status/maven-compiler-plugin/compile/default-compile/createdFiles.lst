@@ -1,0 +1,4 @@
+modelo/Medico.class
+repositorio/MedicoRepositorio.class
+controle/MedicoControle.class
+modelo/Especialidade.class
