@@ -8,7 +8,7 @@ INSERT INTO medicos (id,crm,nome) VALUES (1,'1010' ,'Pedro');
 INSERT INTO medicos (id,crm,nome) VALUES (2,'1020' ,'Maria');
 INSERT INTO medicos (id,crm,nome) VALUES (3,'1030' ,'Ana');
 INSERT INTO medicos (id,crm,nome) VALUES (4,'1040' ,'Gustavo');
-INSERT INTO medicos (id,crm,nome) VALUES (5,'1050' ,'Gabrieala');
+INSERT INTO medicos (id,crm,nome) VALUES (5,'1050' ,'Gabriela');
 
 INSERT INTO medico_especialidade (fk_medico,fk_especialidade) VALUES (1,5);
 INSERT INTO medico_especialidade (fk_medico,fk_especialidade) VALUES (2,4);
