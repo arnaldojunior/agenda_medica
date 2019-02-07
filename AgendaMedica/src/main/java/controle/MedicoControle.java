@@ -25,6 +25,10 @@ public class MedicoControle {
         return medico;
     }
 
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
     public List<Medico> buscarTodos() {
         return repositorio.buscarTodos();
     }
