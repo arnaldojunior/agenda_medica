@@ -17,14 +17,20 @@
                             <img src="img/logo-agenda-medica.png" alt="" id="logoagendamedica"/>
                             <div id="campodepesquisa">
                                 <p:outputLabel value="Pesquisar por:" style="margin-right: 20px"/>
-                                <h:selectOneMenu value="#{medicoControle.medico}">
-                                    <f:selectItem itemLabel="Selecione um" itemValue="" />
-                                    <f:selectItems value="#{medicoControle.buscarTodos()}"
-                                                   var="medico"
-                                                   itemLabel="#{medico.nome}"
-                                                   itemValue="#{medico}"/>
+                                <h:selectOneMenu value="#{medicoControle.especialidade}">
+                                    <f:selectItem itemLabel="Selecione uma" itemValue="" />
+                                    <f:selectItems value="#{medicoControle.buscarTodasEspecialidades()}"
+                                                   var="espec"
+                                                   itemLabel="#{espec.nome}"
+                                                   itemValue="#{espec}"/>                           
+                                  
                                 </h:selectOneMenu>
                             </div>
+                            <h:commandButton action="#{medicoControle.buscarPorEspecialidade()}"
+                                             value="Buscar"/>
+                            
+                            #{medicoControle.medicos}
+                           
                         </h:form>
                     </div>
                 </main>
