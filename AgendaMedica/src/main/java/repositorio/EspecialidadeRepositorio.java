@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package repositorio;
 
 import java.util.List;
@@ -7,14 +12,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.transaction.UserTransaction;
 import modelo.Especialidade;
-import modelo.Medico;
 
 /**
  *
  * @author root
  */
-public class MedicoRepositorio {
-
+public class EspecialidadeRepositorio {
+    
+    
     @PersistenceUnit(unitName = "agendaMedicaPU")
     EntityManagerFactory emf;
 
@@ -24,27 +29,12 @@ public class MedicoRepositorio {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
-    public List<Medico> buscarTodos() {
+    
+    public List<Especialidade> buscarTodos() {
         EntityManager em = null;
         try {
             em = getEntityManager();
-            return em.createQuery("SELECT z FROM Medico z").getResultList();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public List<Medico> buscarPorEspecialidade(Especialidade especialidade) {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            return em.createNamedQuery("Medico.buscarPorEspecialidade", Medico.class)
-                    .setParameter("especialidade", especialidade)
-                    .getResultList();
-
+            return em.createQuery("SELECT e FROM Especialidade e").getResultList();
         } finally {
             if (em != null) {
                 em.close();
