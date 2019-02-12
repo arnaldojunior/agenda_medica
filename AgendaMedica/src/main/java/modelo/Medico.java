@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
@@ -49,7 +50,8 @@ public class Medico implements Serializable{
     @JoinTable(name = "medico_especialidade",
             joinColumns = { @JoinColumn(name = "fk_medico") },
             inverseJoinColumns = { @JoinColumn(name = "fk_especialidade") })
-    private Set<Especialidade> especialidades = new HashSet<>();
+    private List<Especialidade> especialidades ;
+    //private Set<Especialidade> especialidades = new HashSet<>();
 
     
     public Long getId() {
@@ -75,14 +77,22 @@ public class Medico implements Serializable{
     public void setCrm(String crm) {
         this.crm = crm;
     }
+
+    public List<Especialidade> getEspecialidades() {
+        return especialidades;
+    }
+
+    public void setEspecialidades(List<Especialidade> especialidades) {
+        this.especialidades = especialidades;
+    }
     
-    public Set<Especialidade> getEspecialidades() {
+    /*public Set<Especialidade> getEspecialidades() {
         return especialidades;
     }
 
     public void setEspecialidades(Set<Especialidade> especialidades) {
         this.especialidades = especialidades;
-    }
+    }*/
 
     @Override
     public int hashCode() {

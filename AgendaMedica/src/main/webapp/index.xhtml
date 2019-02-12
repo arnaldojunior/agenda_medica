@@ -15,7 +15,7 @@
                     <div class="main-container container">
                         <h:form>
                             <img src="img/logo-agenda-medica.png" alt="" id="logoagendamedica"/>
-                            <div id="campodepesquisa">
+                            
                                 <p:outputLabel value="Pesquisar por:" style="margin-right: 20px"/>
                                 <h:selectOneMenu value="#{medicoControle.especialidade}">
                                     <f:selectItem itemLabel="Selecione uma" itemValue="" />
@@ -23,7 +23,7 @@
                                                    var="espec"
                                                    itemLabel="#{espec.nome}"
                                                    itemValue="#{espec}"/>                           
-                                  
+
                                 </h:selectOneMenu>
                                 <h:dataTable styleClass="tabela">
                                     <h:column>
@@ -33,12 +33,10 @@
                                         <f:facet name="header">Nome</f:facet>
                                     </h:column>
                                 </h:dataTable>
-                            </div>
-                            <h:commandButton action="#{medicoControle.buscarPorEspecialidade()}"
-                                             value="Buscar"/>
+                                <h:commandButton action="#{medicoControle.buscarPorEspecialidade()}"
+                                                 value="Buscar"/>
+                                #{medicoControle.especialidade}
                             
-                            #{medicoControle.medicos}
-                           
                         </h:form>
                     </div>
                 </main>

@@ -2,7 +2,7 @@ package controle;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import modelo.Especialidade;
@@ -15,7 +15,7 @@ import repositorio.EspecialidadeRepositorio;
  * @author jeremias
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class MedicoControle {
 
     @Inject
@@ -27,7 +27,7 @@ public class MedicoControle {
     private Especialidade especialidade;
     
     @Inject
-    private MedicoRepositorio repositorio;
+    private MedicoRepositorio medicoRepositorio;
     
     @Inject
     private EspecialidadeRepositorio especialidadeRepositorio;
@@ -53,18 +53,24 @@ public class MedicoControle {
         return medicos;
     }
 
+    /*
+    *Busca todos os médicos
+    */
+    
     public List<Medico> buscarTodos() {
-        return repositorio.buscarTodos();
+        return medicoRepositorio.buscarTodos();
     }
     
     public List<Especialidade> buscarTodasEspecialidades() {
         return especialidadeRepositorio.buscarTodos();
     }
     
+    /*
+    * Busca todos os médicos por especialidade
+    */
     public void buscarPorEspecialidade() {
-        System.out.println("Buscar Por Especialidade");
-        this.medicos = repositorio.buscarPorEspecialidade(especialidade);
-        System.out.println("Médicos: "+ medicos);
+        this.medicos = medicoRepositorio.buscarPorEspecialidade(especialidade);
     }
+    
     
 }
