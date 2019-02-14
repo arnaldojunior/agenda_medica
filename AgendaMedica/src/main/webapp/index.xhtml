@@ -25,17 +25,17 @@
                                                    itemValue="#{espec}"/>                           
 
                                 </h:selectOneMenu>
-                                <h:dataTable styleClass="tabela">
+                             <!--    <h:dataTable styleClass="tabela">
                                     <h:column>
                                         <f:facet name="header">Nome</f:facet>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Nome</f:facet>
                                     </h:column>
-                                </h:dataTable>
-                                <h:commandButton action="#{medicoControle.buscarPorEspecialidade()}"
-                                                 value="Buscar"/>
-                                #{medicoControle.medicos}
+                                </h:dataTable> -->
+                             <br></br><br></br><br></br><br></br>
+                             <h:commandButton  value="Buscar" action="#{medicoControle.buscarTodosOsMedicos()}"/>
+                             #{medicoControle.medicos}
                             
                         </h:form>
                     </div>

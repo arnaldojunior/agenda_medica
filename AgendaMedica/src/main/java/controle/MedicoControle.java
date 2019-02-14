@@ -57,8 +57,8 @@ public class MedicoControle {
     *Busca todos os médicos
     */
     
-    public List<Medico> buscarTodos() {
-        return medicoRepositorio.buscarTodos();
+    public void buscarTodosOsMedicos() {
+        this.medicos = medicoRepositorio.buscarTodos();
     }
     
     public List<Especialidade> buscarTodasEspecialidades() {

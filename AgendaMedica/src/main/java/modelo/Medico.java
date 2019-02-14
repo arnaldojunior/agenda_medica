@@ -28,7 +28,7 @@ import javax.persistence.Table;
             query = "SELECT m FROM Medico m")
     ,               
         @NamedQuery(name = "Medico.buscarPorEspecialidade",
-            query = "SELECT M FROM Medico M JOIN FETCH M.especialidades e WHERE e.nome = :especialidade")
+            query = "SELECT M FROM Medico AS M WHERE M.especialidades = :especialidades")
     ,     
         @NamedQuery(name = "Medico.buscarPorMedicoPedro",
             query = "SELECT m FROM Medico m WHERE m.nome = 'Pedro'")})
@@ -129,6 +129,6 @@ public class Medico implements Serializable {
     @Override
     public String toString() {
         return "Medico{" + "nome=" + nome + ", crm=" + crm + '}';
-    }
 
+    }
 }

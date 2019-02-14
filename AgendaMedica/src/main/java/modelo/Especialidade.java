@@ -34,7 +34,7 @@ public class Especialidade  implements Serializable{
     private String nome;
     
     @ManyToMany
-    List <Medico> medicos;
+    List <Medico> medico;
     
     public Long getId() {
         return id;
