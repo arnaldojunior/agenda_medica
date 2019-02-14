@@ -21,39 +21,43 @@ import javax.persistence.Table;
 /**
  * @author claudio.barbosa
  */
-
 @Entity
 @Table(name = "medicos")
 @NamedQueries({
-        @NamedQuery(name = "Medico.buscarTodos", 
-                    query = "SELECT m FROM Medico m"),               
-        @NamedQuery(name = "Medico.buscarPorEspecialidade", 
-                    query = "SELECT m FROM Medico m WHERE m.especialidades = :especialidade")})     
-public class Medico implements Serializable{
-    
+    @NamedQuery(name = "Medico.buscarTodos",
+            query = "SELECT m FROM Medico m")
+    ,               
+        @NamedQuery(name = "Medico.buscarPorEspecialidade",
+            query = "SELECT M FROM Medico M JOIN FETCH M.especialidades e WHERE e.nome = :especialidade")
+    ,     
+        @NamedQuery(name = "Medico.buscarPorMedicoPedro",
+            query = "SELECT m FROM Medico m WHERE m.nome = 'Pedro'")})
+public class Medico implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, 
-                    generator = "medico_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "medico_seq")
     @SequenceGenerator(name = "medico_seq",
-                       sequenceName = "medico_seq",
-                       initialValue = 100,
-                       allocationSize = 1)
+            sequenceName = "medico_seq",
+            initialValue = 100,
+            allocationSize = 1)
     private Long id;
-    
-    @Column(name = "nome", nullable = false)
+
+    @Column(name = "nome_med", nullable = false)
     private String nome;
-    
+
     @Column(name = "crm", nullable = false)
     private String crm;
-        
+
     @ManyToMany
     @JoinTable(name = "medico_especialidade",
-            joinColumns = { @JoinColumn(name = "fk_medico") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_especialidade") })
-    private List<Especialidade> especialidades ;
-    //private Set<Especialidade> especialidades = new HashSet<>();
+            joinColumns = {
+                @JoinColumn(name = "fk_medico")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "fk_especialidade")})
+    private List<Especialidade> especialidades;
 
-    
+    //private Set<Especialidade> especialidades = new HashSet<>();
     public Long getId() {
         return id;
     }
@@ -85,7 +89,7 @@ public class Medico implements Serializable{
     public void setEspecialidades(List<Especialidade> especialidades) {
         this.especialidades = especialidades;
     }
-    
+
     /*public Set<Especialidade> getEspecialidades() {
         return especialidades;
     }
@@ -93,7 +97,6 @@ public class Medico implements Serializable{
     public void setEspecialidades(Set<Especialidade> especialidades) {
         this.especialidades = especialidades;
     }*/
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -122,11 +125,10 @@ public class Medico implements Serializable{
         }
         return true;
     }
-    
-    
-     @Override
+
+    @Override
     public String toString() {
         return "Medico{" + "nome=" + nome + ", crm=" + crm + '}';
     }
-    
+
 }

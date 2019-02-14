@@ -69,7 +69,12 @@ public class MedicoControle {
     * Busca todos os médicos por especialidade
     */
     public void buscarPorEspecialidade() {
+        System.out.println(especialidade+"SYSTEM");
         this.medicos = medicoRepositorio.buscarPorEspecialidade(especialidade);
+    }
+    
+    public void buscarPorMedicoPedro() {
+        this.medicos = medicoRepositorio.buscarPorMedicoPedro();
     }
     
     

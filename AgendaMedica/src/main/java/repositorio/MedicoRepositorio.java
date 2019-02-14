@@ -51,4 +51,18 @@ public class MedicoRepositorio {
             }
         }
     }
+    
+    public List<Medico> buscarPorMedicoPedro() {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            return em.createNamedQuery("Medico.buscarPorMedicoPedro", Medico.class)
+                    .getResultList();
+
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 }
